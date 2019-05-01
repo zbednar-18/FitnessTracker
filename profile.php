@@ -33,7 +33,8 @@ $stmt->close();
 		<title>Profile Page</title>
 
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
-    <link rel="stylesheet" href="css/profile.css" type= "text/css">
+		<link rel="stylesheet" href="css/profile.css" type= "text/css">
+		<link rel="stylesheet" href="css/monthly.css" type= "text/css">
 	</head>
 	<body class="loggedin">
 		<nav class="navtop">
@@ -63,5 +64,48 @@ $stmt->close();
 				</table>
 			</div>
 		</div>
+
+<div class="page">
+		<div style="width:100%; max-width:600px; display:inline-block;">
+			<div class="monthly" id="mycalendar"></div>
+		</div>
+		<br><br>
+		<br>
+</div>
+<!-- JS ======================================================= -->
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/monthly.js"></script>
+<script type="text/javascript">
+	$(window).load( function() {
+
+		$('#mycalendar').monthly({
+			mode: 'event',
+			//jsonUrl: 'events.json',
+			//dataType: 'json'
+			xmlUrl: 'events.xml'
+		});
+
+		$('#mycalendar2').monthly({
+			mode: 'picker',
+			target: '#mytarget',
+			setWidth: '250px',
+			startHidden: true,
+			showTrigger: '#mytarget',
+			stylePast: true,
+			disablePast: true
+		});
+
+	switch(window.location.protocol) {
+	case 'http:':
+	case 'https:':
+	// running on a server, should be good.
+	break;
+	case 'file:':
+	//alert('Just a heads-up, events will not work when run locally.');
+	}
+
+	});
+</script>
+
 	</body>
 </html>
