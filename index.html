@@ -27,22 +27,20 @@
 
 <body>
 
-<div id="form">
-	<form action="php/login.php" method="POST">
-		<p>
-			<label>Username:</label>
-			<input type="text" id="user" name="user" />
-		</p>
-
-		<p>
-			<label>Password:</label>
-			<input type="text" id="password" name="password" />
-		</p>
-
-		<p>
-			<input type="submit" id="btn" name="login" />
-		</p>
-</div>
+	<div class="login">
+		<h1>Login</h1>
+		<form action="authenticate.php" method="post">
+			<label for="username">
+				<i class="fas fa-user"></i>
+			</label>
+			<input type="text" name="username" placeholder="Username" id="username" required>
+			<label for="password">
+				<i class="fas fa-lock"></i>
+			</label>
+			<input type="password" name="password" placeholder="Password" id="password" required>
+			<input type="submit" value="Login">
+		</form>
+	</div>
 
 	
 <div class="page">
