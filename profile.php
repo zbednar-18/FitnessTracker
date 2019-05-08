@@ -69,8 +69,67 @@ $stmt->close();
 		<div style="width:100%; max-width:600px; display:inline-block;">
 			<div class="monthly" id="mycalendar"></div>
 		</div>
-		<br><br>
-		<br>
+		<canvas id="myChart" width="400" height="100"></canvas>
+		<script>
+		var ctx = document.getElementById('myChart');
+		var myChart = new Chart(ctx, {
+		    type: 'line',
+		    data: {
+		        labels: ["January", "February", "March", "April", "May", "June", "July", "Augest, September", "November", "December"],
+		        datasets: [{
+		            label: 'Weight',
+		            data: [250, 245, 247, 240, 230, 225, 220, 215, 210, 205],
+		            backgroundColor: [
+		                'rgba(255, 99, 132, 0.2)',
+		                'rgba(54, 162, 235, 0.2)',
+		                'rgba(255, 206, 86, 0.2)',
+		                'rgba(75, 192, 192, 0.2)',
+		                'rgba(153, 102, 255, 0.2)',
+		                'rgba(255, 159, 64, 0.2)'
+		            ],
+		            borderColor: [
+		                'rgba(255, 99, 132, 1)',
+		                'rgba(54, 162, 235, 1)',
+		                'rgba(255, 206, 86, 1)',
+		                'rgba(75, 192, 192, 1)',
+		                'rgba(153, 102, 255, 1)',
+		                'rgba(255, 159, 64, 1)'
+		            ],
+		            borderWidth: 1
+		        },
+				{
+	label: "Body Mass Index",
+	data: [25.4, 33.2, 32.3, 45.2, 12.3, 18.1, 19.3, 25.6, 12.4, 1.1],
+	backgroundColor: [
+		'rgba(255, 99, 132, 0.2)',
+		'rgba(54, 162, 235, 0.2)',
+		'rgba(255, 206, 86, 0.2)',
+		'rgba(75, 192, 192, 0.2)',
+		'rgba(153, 102, 255, 0.2)',
+		'rgba(255, 159, 64, 0.2)'
+	],
+	borderColor: [
+		'rgba(255, 99, 132, 1)',
+		'rgba(54, 162, 235, 1)',
+		'rgba(255, 206, 86, 1)',
+		'rgba(75, 192, 192, 1)',
+		'rgba(153, 102, 255, 1)',
+		'rgba(255, 159, 64, 1)'
+	],
+}
+			]
+		    },
+		    options: {
+		        scales: {
+		            yAxes: [{
+		                ticks: {
+		                    beginAtZero: true
+		                }
+		            }]
+		        }
+		    }
+		});
+		</script>
 </div>
 <!-- JS ======================================================= -->
 <script type="text/javascript" src="js/jquery.js"></script>
