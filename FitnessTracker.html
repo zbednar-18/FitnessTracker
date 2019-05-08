@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="FitnessTracker.css" type="text/css">
+  <script src="js/fitnessTracker.js" type="text/javascript"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 </head>
@@ -16,9 +17,6 @@
         <div class="navbar-header">
             <a class="navbar-brand" href="#">Fitness Tracker</a>
         </div>
-        <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
-        </ul>
         <ul class="nav navbar-nav navbar-right">
             <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
             <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
@@ -29,7 +27,75 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-sm-4" style="background-color:yellow">calendar will go here</div>
-    <div class="col-sm-4">take info from user here</div>
+    <div class="col-sm-4">
+      <fieldset>
+        <legend>Calculate Your BMI</legend>
+        <p>Height (feet): <input type="text" id="heightFeet"></p></br>
+        <p>Height (inches): <input type="text" id="heightInch"></p><br>
+        <p>Weight (LBs): <input type="text" id="weight"></p><br>
+        <button id="calcBMI">Calculate BMI</button><br>
+        <h5 id="BMI"></h5>
+      </fieldset>
+
+      <Fieldset>
+        <legend>Calculate Calories Burned During Weight Lifting</legend>
+        <p>Weight (LBs): <input type="text" id="calBurnWeight"></p><br>
+        <p>Number of minutes you lifted weights (including rest): <input type="text" id="minutesLifting"></p><br>
+        <p>Intensity of Training: <select id="intensity">
+          <option value="0"></option>
+          <option value=".055">Body Building</option>
+          <option value=".042">Circuit Training</option>
+          <option value=".039">Strength Training</option>
+          <option value=".028">Light Weight Lifting</option>
+        </select></p>
+        <button id="calsBurnedBtn">Calculate Calories Burned</button><br>
+        <h5 id="calsBurned"></h5>
+      </Fieldset>
+
+      <fieldset>
+        <legend>Calculate Calories Burned During Aerobic Exercise</legend>
+        <p>Type of Exercises: <select id="typeExercises">
+          <option value="0"></option>
+          <option value="1">Sitting</option>
+          <option value="4">Bicycling ( < 10 mph, general Leisure )</option>
+          <option value="6">Bicycling ( 10 - 11.9 mph )</option>
+          <option value="8">Bicycling ( 12 - 13.9 mph )</option>
+          <option value="10">Bicycling ( 14 - 15.9 mph )</option>
+          <option value="12">Bicycling ( 16 - 19 mph )</option>
+          <option value="16">Bicycling ( > 20 mph, racing ) </option>
+          <option value="3">Stationary Bike, Very Low Effort </option>
+          <option value="5.5">Stationary Bike, Low Effort</option>
+          <option value="7">Stationary Bike, Moderate Effort</option>
+          <option value="10.5">Stationary Bike, Vigorous Effort</option>
+          <option value="12.5">Stationary Bike, Very Vigorous Effort</option>
+          <option value="4.5">Calisthenics, Light / Moderate Effort</option>
+          <option value="8">Calisthenics, Vigorous Effort ( pushup, pullups, situps etc. )</option>
+          <option value="8">Running, 12 min mile</option>
+          <option value="9">Running, 11.5 min mile</option>
+          <option value="11">Running, 10 min mile</option>
+          <option value="11.5">Running, 9 min mile</option>
+          <option value="12.5">Running, 8 min mile</option>
+          <option value="14">Running, 7 min mile</option>
+          <option value="15">Running, 6.5 min mile</option>
+          <option value="16">Running, 6 min mile</option>
+          <option value="18">Running, 5.5 min mile</option>
+          <option value="16">Running Stairs</option>
+          <option value="6">Swimming Leisurely</option>
+          <option value="8">Swimming, Backstroke Laps</option>
+          <option value="10">Swimming, Breaststroke Laps</option>
+          <option value="11">Swimming, Butterfly laps</option>
+          <option value="2.5">Walking, Slow Pace</option>
+          <option value="3.5">Walking, Moderate Pace</option>
+          <option value="4">Walking, Brisk Pace</option>
+          <option value="4.5">Walking, Very Brisk Pace</option>
+          <option value="6.5">Walking, Race Walking, > 4.5 mph</option>
+        </select></p><br>
+        <p>Number of minutes you exercised: <input type="text" id="aerobicMinutes"></p><br>
+        <p>Weight (LBs): <input type="text" id="aerobicWeight"></p><br>
+        <button id="aerobicCalsBurnedBtn">Calculate Calories Burned</button><br>
+        <h5 id="aerobicCalsBurned"></h5>
+      </fieldset>
+    </div>
     <div class="col-sm-4" style="background-color:yellow">display user info here</div>
   </div>
 </div>
