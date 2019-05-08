@@ -1,151 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
 
-<head>
-	<script src="js/main.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.js"></script>
-<!--[if lt IE 9]>
-	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-<![endif]-->
-
-<!-- META ===================================================== -->
-	<meta charset='utf-8'>
-	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, user-scalable=0">
-	<title>Monthly - A jQuery Calendar Plugin</title>
-	<link rel="icon" href="images/favIcon.png">
-
-<!-- Favicon  ========================================== -->
-
-
-<!-- CSS ======================================================
-	<link rel="stylesheet" href="css/responsivetables.css">-->
-	<!-- Demo CSS (don't use) -->
-	<link href="https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz" rel="stylesheet" type="text/css">
-
-	<link rel="stylesheet" href="css/monthly.css">
-	<link rel="stylesheet" href="css/home.css">
-
-</head>
-
-<body>
-
-<div id="form">
-	<form action="php/login.php" method="POST">
-		<p>
-			<label>Username:</label>
-			<input type="text" id="user" name="user" />
-		</p>
-
-		<p>
-			<label>Password:</label>
-			<input type="text" id="password" name="password" />
-		</p>
-
-		<p>
-			<input type="submit" id="btn" name="login" />
-		</p>
-</div>
-
-
-<div class="page">
-		<div style="width:100%; max-width:600px; padding-left: 3em;">
-			<div class="monthly" id="mycalendar"></div>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Login</title>
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+		<link rel="stylesheet" href="css/home.css">
+	</head>
+	<body>
+		<div class="login">
+			<h1>Login</h1>
+			<form action="authenticate.php" method="post">
+				<label for="username">
+					<i class="fas fa-user"></i>
+				</label>
+				<input type="text" name="username" placeholder="Username" id="username" required>
+				<label for="password">
+					<i class="fas fa-lock"></i>
+				</label>
+				<input type="password" name="password" placeholder="Password" id="password" required>
+				<input type="submit" value="Login">
+			</form>
 		</div>
-		<canvas id="myChart" width="400" height="100"></canvas>
-		<script>
-		var ctx = document.getElementById('myChart');
-		var myChart = new Chart(ctx, {
-		    type: 'line',
-		    data: {
-		        labels: ["January", "February", "March", "April", "May", "June", "July", "Augest, September", "November", "December"],
-		        datasets: [{
-		            label: 'Weight',
-		            data: [250, 245, 247, 240, 230, 225, 220, 215, 210, 205],
-		            backgroundColor: [
-		                'rgba(255, 99, 132, 0.2)',
-		                'rgba(54, 162, 235, 0.2)',
-		                'rgba(255, 206, 86, 0.2)',
-		                'rgba(75, 192, 192, 0.2)',
-		                'rgba(153, 102, 255, 0.2)',
-		                'rgba(255, 159, 64, 0.2)'
-		            ],
-		            borderColor: [
-		                'rgba(255, 99, 132, 1)',
-		                'rgba(54, 162, 235, 1)',
-		                'rgba(255, 206, 86, 1)',
-		                'rgba(75, 192, 192, 1)',
-		                'rgba(153, 102, 255, 1)',
-		                'rgba(255, 159, 64, 1)'
-		            ],
-		            borderWidth: 1
-		        },
-				{
-	label: "Body Mass Index",
-	data: [25.4, 33.2, 32.3, 45.2, 12.3, 18.1, 19.3, 25.6, 12.4, 1.1],
-	backgroundColor: [
-		'rgba(255, 99, 132, 0.2)',
-		'rgba(54, 162, 235, 0.2)',
-		'rgba(255, 206, 86, 0.2)',
-		'rgba(75, 192, 192, 0.2)',
-		'rgba(153, 102, 255, 0.2)',
-		'rgba(255, 159, 64, 0.2)'
-	],
-	borderColor: [
-		'rgba(255, 99, 132, 1)',
-		'rgba(54, 162, 235, 1)',
-		'rgba(255, 206, 86, 1)',
-		'rgba(75, 192, 192, 1)',
-		'rgba(153, 102, 255, 1)',
-		'rgba(255, 159, 64, 1)'
-	],
-}
-			]
-		    },
-		    options: {
-		        scales: {
-		            yAxes: [{
-		                ticks: {
-		                    beginAtZero: true
-		                }
-		            }]
-		        }
-		    }
-		});
-		</script>
-</div>
-<!-- JS ======================================================= -->
-<script type="text/javascript" src="js/jquery.js"></script>
-<script type="text/javascript" src="js/monthly.js"></script>
-<script type="text/javascript">
-	$(window).load( function() {
-
-		$('#mycalendar').monthly({
-			mode: 'event',
-			//jsonUrl: 'events.json',
-			//dataType: 'json'
-			xmlUrl: 'events.xml'
-		});
-
-		$('#mycalendar2').monthly({
-			mode: 'picker',
-			target: '#mytarget',
-			setWidth: '250px',
-			startHidden: true,
-			showTrigger: '#mytarget',
-			stylePast: true,
-			disablePast: true
-		});
-
-	switch(window.location.protocol) {
-	case 'http:':
-	case 'https:':
-	// running on a server, should be good.
-	break;
-	case 'file:':
-	//alert('Just a heads-up, events will not work when run locally.');
-	}
-
-	});
-</script>
-</body>
+	</body>
 </html>
