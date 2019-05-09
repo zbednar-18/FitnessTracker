@@ -1,3 +1,16 @@
 .row{
     text-align: center;
 }
+
+body {
+    background-image: url("images/interlaced.png");  
+    background-repeat: repeat; 
+}
+
+h1, h2, h3, h4, h5, h6, legend {
+    font-family: 'Roboto Mono', monospace, 'Corben', Georgia, Times, serif;
+}
+
+p, div {
+    font-family: 'Roboto Mono', monospace, 'Nobile', Helvetica, Arial, sans-serif;
+}

@@ -35,19 +35,26 @@ $stmt->close();
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
 		<link rel="stylesheet" href="css/profile.css" type= "text/css">
 		<link rel="stylesheet" href="css/monthly.css" type= "text/css">
-
+		<link rel="stylesheet" href="css/FitnessTracker.css" type="text/css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+		<link href="http://fonts.googleapis.com/css?family=Corben:bold" rel="stylesheet" type="text/css">
+		 <link href="http://fonts.googleapis.com/css?family=Nobile" rel="stylesheet" type="text/css">
+		 <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
+  		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 		<script src="js/fitnessTracker.js" type="text/javascript"></script>
+
 	</head>
 	<body class="loggedin">
 		<nav class="navtop">
 			<div>
-				<h1>Website Title</h1>
+				<h1>MyFitnessTracker</h1>
 				<a href="profile.php"><i class="fas fa-user-circle"></i>Profile</a>
 				<a href="logout.php"><i class="fas fa-sign-out-alt"></i>Logout</a>
 			</div>
 		</nav>
 		<div class="content">
-			<h2>Profile Page</h2>
+			<h2>Your Profile</h2>
 			<div>
 				<p>Your account details are below:</p>
 				<table>
@@ -69,7 +76,49 @@ $stmt->close();
 
 		<div class="container-fluid">
   <div class="row">
-    <div class="col-sm-4" style="background-color:yellow">calendar will go here</div>
+    <div class="col-sm-4">
+		<div class="page">
+			<div style="width:100%; max-width:600px; display:inline-block;">
+				<div class="monthly" id="mycalendar"></div>
+			</div>
+			<br><br>
+			<br>
+	</div>
+	<!-- JS ======================================================= -->
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/monthly.js"></script>
+	<script type="text/javascript">
+		$(window).load( function() {
+	
+			$('#mycalendar').monthly({
+				mode: 'event',
+				jsonUrl: 'events.json',
+				dataType: 'json'
+				//xmlUrl: 'events.xml'
+			});
+	
+			$('#mycalendar2').monthly({
+				mode: 'picker',
+				target: '#mytarget',
+				setWidth: '250px',
+				startHidden: true,
+				showTrigger: '#mytarget',
+				stylePast: true,
+				disablePast: true
+			});
+	
+		switch(window.location.protocol) {
+		case 'http:':
+		case 'https:':
+		// running on a server, should be good.
+		break;
+		case 'file:':
+		//alert('Just a heads-up, events will not work when run locally.');
+		}
+	
+		});
+	</script>
+	</div>
     <div class="col-sm-4">
 		<fieldset>
 		  <legend>Select a date</legend>
@@ -78,18 +127,24 @@ $stmt->close();
 		</fieldset>
       <fieldset>
         <legend>Calculate Your BMI</legend>
-        <p>Height (feet): <input type="text" id="heightFeet"></p></br>
-        <p>Height (inches): <input type="text" id="heightInch"></p><br>
-        <p>Weight (LBs): <input type="text" id="weight"></p><br>
+        <p>Height (feet): <br>
+			<input type="text" id="heightFeet"></p></br>
+        <p>Height (inches): <br>
+			<input type="text" id="heightInch"></p><br>
+        <p>Weight (LBs): <br>
+			<input type="text" id="weight"></p><br>
         <button id="calcBMI">Calculate BMI</button><br>
         <h5 id="BMI"></h5>
       </fieldset>
 
       <Fieldset>
         <legend>Calculate Calories Burned During Weight Lifting</legend>
-        <p>Weight (LBs): <input type="text" id="calBurnWeight"></p><br>
-        <p>Number of minutes you lifted weights (including rest): <input type="text" id="minutesLifting"></p><br>
-        <p>Intensity of Training: <select id="intensity">
+        <p>Weight (LBs): <br>
+			<input type="text" id="calBurnWeight"></p><br>
+		<p>Number of minutes you lifted weights (including rest): <br> 
+			<input type="text" id="minutesLifting"></p><br>
+		<p>Intensity of Training: <br> 
+			<select id="intensity">
           <option value="0"></option>
           <option value=".055">Body Building</option>
           <option value=".042">Circuit Training</option>
@@ -102,7 +157,8 @@ $stmt->close();
 
       <fieldset>
         <legend>Calculate Calories Burned During Aerobic Exercise</legend>
-        <p>Type of Exercises: <select id="typeExercises">
+        <p>Type of Exercises: <br>
+			<select id="typeExercises">
           <option value="0"></option>
           <option value="1">Sitting</option>
           <option value="4">Bicycling ( < 10 mph, general Leisure )</option>
@@ -138,8 +194,10 @@ $stmt->close();
           <option value="4.5">Walking, Very Brisk Pace</option>
           <option value="6.5">Walking, Race Walking, > 4.5 mph</option>
         </select></p><br>
-        <p>Number of minutes you exercised: <input type="text" id="aerobicMinutes"></p><br>
-        <p>Weight (LBs): <input type="text" id="aerobicWeight"></p><br>
+		<p>Number of minutes you exercised: <br> 
+			<input type="text" id="aerobicMinutes"></p><br>
+		<p>Weight (LBs): <br> 
+			<input type="text" id="aerobicWeight"></p><br>
         <button id="aerobicCalsBurnedBtn">Calculate Calories Burned</button><br>
         <h5 id="aerobicCalsBurned"></h5>
       </fieldset>
@@ -149,47 +207,7 @@ $stmt->close();
   </div>
 </div>
 
-<div class="page">
-		<div style="width:100%; max-width:600px; display:inline-block;">
-			<div class="monthly" id="mycalendar"></div>
-		</div>
-		<br><br>
-		<br>
-</div>
-<!-- JS ======================================================= -->
-<script type="text/javascript" src="js/jquery.js"></script>
-<script type="text/javascript" src="js/monthly.js"></script>
-<script type="text/javascript">
-	$(window).load( function() {
 
-		$('#mycalendar').monthly({
-			mode: 'event',
-			jsonUrl: 'events.json',
-			dataType: 'json'
-			//xmlUrl: 'events.xml'
-		});
-
-		$('#mycalendar2').monthly({
-			mode: 'picker',
-			target: '#mytarget',
-			setWidth: '250px',
-			startHidden: true,
-			showTrigger: '#mytarget',
-			stylePast: true,
-			disablePast: true
-		});
-
-	switch(window.location.protocol) {
-	case 'http:':
-	case 'https:':
-	// running on a server, should be good.
-	break;
-	case 'file:':
-	//alert('Just a heads-up, events will not work when run locally.');
-	}
-
-	});
-</script>
 
 	</body>
 </html>
