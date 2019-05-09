@@ -71,6 +71,11 @@ $stmt->close();
   <div class="row">
     <div class="col-sm-4" style="background-color:yellow">calendar will go here</div>
     <div class="col-sm-4">
+		<fieldset>
+		  <legend>Select a date</legend>
+		  	<input id="date" type="date" value="2017-06-01">
+		  <h5 id="Date"></h5>
+		</fieldset>
       <fieldset>
         <legend>Calculate Your BMI</legend>
         <p>Height (feet): <input type="text" id="heightFeet"></p></br>
@@ -138,6 +143,7 @@ $stmt->close();
         <button id="aerobicCalsBurnedBtn">Calculate Calories Burned</button><br>
         <h5 id="aerobicCalsBurned"></h5>
       </fieldset>
+	  <button id="addToCalendar">Add stats to calendar</button><br>
     </div>
     <div class="col-sm-4" style="background-color:yellow">display user info here</div>
   </div>
@@ -158,9 +164,9 @@ $stmt->close();
 
 		$('#mycalendar').monthly({
 			mode: 'event',
-			//jsonUrl: 'events.json',
-			//dataType: 'json'
-			xmlUrl: 'events.xml'
+			jsonUrl: 'events.json',
+			dataType: 'json'
+			//xmlUrl: 'events.xml'
 		});
 
 		$('#mycalendar2').monthly({
