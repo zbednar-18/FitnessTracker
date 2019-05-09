@@ -66,3 +66,75 @@ body.loggedin {
 	padding: 5px;
 	margin: 0 0 10px 0;
 }
+
+#inputHeaders{
+	font-size: 1.3rem !important;
+}
+
+.datePickerContainer{
+	border: solid grey 2px;
+}
+
+.innerContainer{
+	margin-left: 200%;
+	margin-bottom: 1em;
+	margin-top: 1em;
+	text-align: center;
+}
+
+#calculateContainer .bx--text-input__field-wrapper{
+	display: contents;
+}
+
+.inputTexts{
+	margin-top: 1em;
+}
+
+.fieldName{
+
+}
+
+.innerContainerTwo{
+	text-align: center;
+	border: solid grey 2px;
+	margin-left: .07em;
+	padding-right: 1em;
+	width: 33.3em;
+	height: 27em;
+}
+
+#inputHeader2{
+	font-size: 1rem !important;
+    text-align: center;
+    margin-top: .75em;
+}
+
+#calcBMI{
+	margin-top: 2.5em;
+	margin-bottom: .5em;
+}
+
+#calsBurnedBtn{
+	margin-left: 3.5em;
+	margin-top: 1.5em;
+}
+
+#statContainer{
+	display: inline-flex;
+}
+
+#aerobicCalsBurnedBtn{
+	margin-left: 3.5em;
+	margin-top: 1.5em;
+}
+
+#calculateContainer{
+	height: 21em;
+}
+
+#addToCalendar{
+	margin-left: 41.2%;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    width: 18em;
+}

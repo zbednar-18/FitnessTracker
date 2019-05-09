@@ -209,21 +209,23 @@ Monthly 2.2.2 by Kevin Thornbloom is licensed under a Creative Commons Attributi
 				return;
 			}
 
-			var startTime = _getEventDetail(event, "starttime"),
-				timeHtml = "",
+			var timeHtml = "",
 				eventURL = _getEventDetail(event, "url"),
-				eventTitle = _getEventDetail(event, "name"),
-				eventClass = _getEventDetail(event, "class"),
+				eventTitle = _getEventDetail(event, "bmi"),
+				eventClass = _getEventDetail(event, "bmi"),
+				weight = _getEventDetail(event, "weight"),
+				caloriesBurnedLifting = _getEventDetail(event, "caloriesBurnedLifting"),
+				caloriesBurnedAerobic = _getEventDetail(event, "caloriesBurnedAerobic"),
 				eventColor = _getEventDetail(event, "color"),
 				eventId = _getEventDetail(event, "id"),
 				customClass = eventClass ? " " + eventClass : "",
 				dayStartTag = "<div",
 				dayEndTags = "</span></div>";
 
-			if(startTime) {
+			if(eventURL) {
 				var endTime = _getEventDetail(event, "endtime");
-				timeHtml = '<div><div class="monthly-list-time-start">' + formatTime(startTime) + "</div>"
-					+ (endTime ? '<div class="monthly-list-time-end">' + formatTime(endTime) + "</div>" : "")
+				timeHtml = '<div><div class="monthly-list-time-start">' + "</div>"
+					+ ('<div class="monthly-list-time-end">' + "</div>"  + "")
 					+ "</div>";
 			}
 
@@ -243,17 +245,21 @@ Monthly 2.2.2 by Kevin Thornbloom is licensed under a Creative Commons Attributi
 					+ attr("data-eventid", eventId)
 					+ (eventColor ? attr("style", "background:" + eventColor) : "")
 					+ attr("title", eventTitle)
-					+ ">" + eventTitle + " " + timeHtml + "</a>";
+					+ "> BMI: " + eventTitle + " " + timeHtml + "</a>"
+					+ "<a class=listed-event style=background:"  + eventColor + "> Weight: " + weight + " Pounds</a" + "</br>"
+					+ "<a class=listed-event style=background:"  + eventColor + "> Calories Burned While Lifiting Weights: " + caloriesBurnedLifting + "</a" + "</br>"
+					+ "<a class=listed-event style=background:"  + eventColor + "> Calories Burned While doing Arobics: " + caloriesBurnedAerobic + "</a";
 			for(var index = startDayNumber; index <= endDayNumber; index++) {
 				var doShowTitle = index === showEventTitleOnDay;
 				// Add to calendar view
 				$(parent + ' *[data-number="' + index + '"] .monthly-indicator-wrap').append(
 						markupDayStart
-						+ attr("class", "monthly-event-indicator" + customClass
-							// Include a class marking if this event continues from the previous day
-							+ (doShowTitle ? "" : " monthly-event-continued")
-							)
-						+ "><span>" + (doShowTitle ? eventTitle : "") + dayEndTags);
+						+ attr("class", "monthly-event-indicator")
+						+ "><span> BMI: " +  eventTitle);
+						$(parent + ' *[data-number="' + index + '"] .monthly-indicator-wrap').append(
+								markupDayStart
+								+ attr("class", "monthly-event-indicator")
+								+ "><span> Weight: " +  weight + "LBs");
 				// Add to event list
 				$(parent + ' .monthly-list-item[data-number="' + index + '"]')
 					.addClass("item-has-event")
