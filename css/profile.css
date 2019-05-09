@@ -40,6 +40,7 @@ body.loggedin {
 .content {
 	width: 1000px;
 	margin: 0 auto;
+	text-align: center;
 }
 .content h2 {
 	margin: 0;
@@ -72,7 +73,7 @@ body.loggedin {
 }
 
 .datePickerContainer{
-	border: solid grey 2px;
+	padding-left: 12.5%;
 }
 
 .innerContainer{
@@ -121,6 +122,7 @@ body.loggedin {
 
 #statContainer{
 	display: inline-flex;
+	padding-left: 12.5%;
 }
 
 #aerobicCalsBurnedBtn{
@@ -133,8 +135,24 @@ body.loggedin {
 }
 
 #addToCalendar{
-	margin-left: 41.2%;
+	margin-left: 43.25%;
     margin-top: 1em;
     margin-bottom: 1em;
-    width: 18em;
+    width: 19em;
+}
+
+#calendar {
+	width: 50%;
+	max-width: 44%;
+	display: inline-block;
+	margin-top: 0.5em;
+	padding-left: 12.5%;
+}
+
+#chart {
+	position: absolute;
+	top: 85%;
+	left: 50%;
+	width: 44em;
+	height: 500px;
 }
